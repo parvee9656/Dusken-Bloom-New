@@ -1,303 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dusken Bloom – The Luxury Perfumes</title>
-  <meta name="description" content="Dusken Bloom – premium non‑alcoholic luxury perfumes. Explore ICON and Dark Orchid." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0b0f;         /* deep charcoal */
-      --card:#121219;       /* card surface */
-      --muted:#9da3af;      /* subdued text */
-      --text:#f6f7fb;       /* primary text */
-      --gold-1:#c18b2f;     /* warm gold */
-      --gold-2:#f5d67d;     /* light gold */
-      --max:1200px;         /* layout width */
-      --radius:20px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-
-    /* Gold gradient text / accents */
-    .gold{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .btn-gold{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:#1a1a1a;border:none;padding:14px 22px;border-radius:999px;font-weight:600;cursor:pointer;box-shadow:var(--shadow);transition:transform .2s ease,opacity .2s ease}
-    .btn-gold:hover{transform:translateY(-2px);opacity:.95}
-
-    /* Layout */
-    .container{width:100%;max-width:var(--max);margin-inline:auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:50;background:rgba(11,11,15,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-    .nav a{opacity:.9;margin-left:22px}
-    .nav a:hover{opacity:1}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{height:40px;width:auto}
-    .brand h1{font:700 20px/1.1 "Playfair Display",serif;letter-spacing:.4px;margin:0}
-    .links{display:flex;align-items:center}
-
-    /* Hero */
-    .hero{position:relative;min-height:88vh;display:grid;place-items:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:url("assets/hero.jpg") center/cover no-repeat;opacity:.28}
-    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%,rgba(241,233,208,.25),transparent 60%),linear-gradient(#0b0b0fd9,#0b0b0f)}
-    .hero-inner{position:relative;text-align:center;padding:80px 20px}
-    .hero-logo{width:120px;margin:0 auto 18px}
-    .hero h2{font:700 56px/1.05 "Playfair Display",serif;margin:0 0 14px}
-    .hero p{max-width:740px;margin:0 auto 26px;color:var(--muted);font-size:18px}
-    .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-    /* Sections */
-    section{padding:72px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .section-title{font:700 38px/1.05 "Playfair Display",serif;margin:0 0 24px}
-    .muted{color:var(--muted)}
-
-    /* About */
-    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .about-card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-    .about-media{border-radius:var(--radius);overflow:hidden}
-
-    /* Products */
-    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
-    .product{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
-    .product-media{aspect-ratio:4/3;overflow:hidden}
-    .product-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform .5s ease}
-    .product:hover .product-media img{transform:scale(1.08)}
-    .product-body{padding:22px 22px 26px}
-    .pill{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(241,233,208,.08);border:1px solid rgba(255,255,255,.08);font-size:12px;letter-spacing:.3px;margin-bottom:10px}
-    .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
-    .note{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px}
-
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .g{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.08)}
-    .g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-    .g:hover img{transform:scale(1.06)}
-    .g-6{grid-column:span 6}
-    .g-4{grid-column:span 4}
-    .g-8{grid-column:span 8}
-    .g-3{grid-column:span 3}
-
-    /* Contact */
-    .contact-card{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .chip{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
-
-    footer{padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
-
-    /* Responsive */
-    @media (max-width: 1024px){
-      .about,.contact-card{grid-template-columns:1fr}
-      .products{grid-template-columns:1fr}
-      .notes{grid-template-columns:1fr 1fr}
-      .hero h2{font-size:44px}
-    }
-    @media (max-width: 640px){
-      .nav{height:auto;padding:12px 0;gap:10px}
-      .links{gap:12px;flex-wrap:wrap}
-      .hero h2{font-size:34px}
-      .notes{grid-template-columns:1fr}
-      .g-6,.g-4,.g-8,.g-3{grid-column:span 12}
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dusken Bloom - The Luxury Perfumes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<!-- ================= Order Section ================= -->
-<section id="order" class="container" style="padding:60px 20px; text-align:center;">
-  <h2>Place Your Order</h2>
-  <p style="margin-bottom:20px;">Fill the form below to order Dusken Bloom perfumes.</p>
-
-  <!-- Order Form -->
-  <form id="orderForm"
-        action="https://formspree.io/f/xkgvpkej"
-        method="POST"
-        style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; text-align:left;">
-
-    <label for="name">Full Name</label>
-    <input type="text" name="name" id="name" required>
-
-    <label for="phone">Phone Number</label>
-    <input type="text" name="phone" id="phone" required>
-
-    <label for="address">Delivery Address</label>
-    <textarea name="address" id="address" rows="3" required></textarea>
-
-    <label for="product">Select Product</label>
-    <select name="product" id="product" required>
-      <option value="ICON">ICON - ₹999</option>
-      <option value="Dark Orchid">Dark Orchid - ₹1199</option>
-    </select>
-
-    <label for="quantity">Quantity</label>
-    <input type="number" name="quantity" id="quantity" value="1" min="1" required>
-
-    <button type="submit" style="background:#000; color:#fff; padding:12px; border:none; border-radius:5px; cursor:pointer;">
-      Submit Order
-    </button>
-  </form>
-
-  <hr style="margin:40px 0;">
-
-  <!-- UPI Payment -->
-  <h3>Pay via UPI</h3>
-  <p>Scan the QR code or click the button to pay securely.</p>
-
-  <!-- Upload your QR image inside assets/ folder -->
-  <img src="assets/upi-qr.png" alt="UPI QR" style="max-width:200px; margin-bottom:15px;">
-
-  <br>
-  <a href="upi://pay?pa=9207471285@kotak811&pn=DuskenBloom&cu=INR"
-     style="display:inline-block; background:#007bff; color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none;">
-     Pay with UPI
-  </a>
-</section>
-
 <body>
-  <!-- Header -->
+
+  <!-- ===== HEADER ===== -->
   <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="assets/logo.png" alt="Dusken Bloom Logo" />
-        <h1>Dusken Bloom</h1>
-      </div>
-      <nav class="links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">Dusken Bloom</div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#order">Order</a> <!-- ✅ New Order Link -->
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-inner container">
-      <img class="hero-logo" src="assets/logo.png" alt="Dusken Bloom" />
-      <h2><span class="gold">The Luxury Perfumes</span></h2>
-      <p>Premium non‑alcoholic fragrances crafted for timeless elegance and everyday confidence.</p>
-      <div class="cta">
-        <a href="#products"><button class="btn-gold">Explore Fragrances</button></a>
-        <a href="#contact" class="chip">WhatsApp • 8762773728</a>
+  <!-- ===== HOME ===== -->
+  <section id="home" class="container">
+    <h1>Welcome to Dusken Bloom</h1>
+    <p>Luxury Non-Alcoholic Perfumes crafted with elegance.</p>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="container">
+    <h2>About Us</h2>
+    <p>Dusken Bloom brings you premium, long-lasting, and non-alcoholic perfumes made with high-quality ingredients. Our mission is to deliver a luxury fragrance experience to everyone.</p>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="container">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="assets/icon.jpg" alt="ICON Perfume">
+        <h3>ICON</h3>
+        <p>Price: ₹999</p>
+      </div>
+      <div class="product">
+        <img src="assets/dark-orchid.jpg" alt="Dark Orchid Perfume">
+        <h3>Dark Orchid</h3>
+        <p>Price: ₹1199</p>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container about">
-      <div class="about-card">
-        <h3 class="section-title">About <span class="gold">Dusken Bloom</span></h3>
-        <p class="muted">Dusken Bloom brings you premium non‑alcoholic luxury perfumes, carefully blended with the finest notes to deliver long‑lasting, sophisticated scents. Each bottle reflects our passion for craftsmanship and elegance.</p>
-        <ul>
-          <li>Premium blends • Long‑lasting performance</li>
-          <li>Unisex appeal • Elegant presentation</li>
-          <li>Thoughtfully designed for day & night</li>
-        </ul>
-      </div>
-      <div class="about-media">
-        <img src="assets/about.jpg" alt="Dusken Bloom lifestyle"/>
-      </div>
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="container">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="assets/gallery1.jpg" alt="Perfume bottle">
+      <img src="assets/gallery2.jpg" alt="Luxury perfume">
+      <img src="assets/gallery3.jpg" alt="Perfume collection">
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products">
-    <div class="container">
-      <h3 class="section-title">Our <span class="gold">Fragrances</span></h3>
-      <div class="products">
-        <!-- ICON -->
-        <article class="product" aria-labelledby="icon-title">
-          <div class="product-media">
-            <img src="assets/icon-main.jpg" alt="ICON – Dusken Bloom"/>
-          </div>
-          <div class="product-body">
-            <span class="pill">ICON</span>
-            <h4 id="icon-title" class="gold" style="font-family:'Playfair Display',serif;font-size:28px;margin:6px 0 6px">Evoke The Extraordinary</h4>
-            <p class="muted">Experience unmatched confidence and charm with ICON, a bold and luxurious perfume designed for those who lead, inspire, and leave a lasting impression.</p>
-            <div class="notes">
-              <div class="note"><strong>Top</strong><br>Lavender, Cardamom, Artemisia, Bergamot</div>
-              <div class="note"><strong>Middle</strong><br>Tobacco, Cinnamon, Cedar, Iris</div>
-              <div class="note"><strong>Base</strong><br>Musk, Vanilla, Sandalwood, Amber</div>
-            </div>
-            <ul class="muted">
-              <li>8+ hours long‑lasting performance</li>
-              <li>Perfect for evenings, occasions, or daily confidence</li>
-              <li>30ml transparent bottle • sleek black cap</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Dark Orchid -->
-        <article class="product" aria-labelledby="orchid-title">
-          <div class="product-media">
-            <img src="assets/dark-orchid-main.jpg" alt="Dark Orchid – Dusken Bloom"/>
-          </div>
-          <div class="product-body">
-            <span class="pill">Dark Orchid</span>
-            <h4 id="orchid-title" class="gold" style="font-family:'Playfair Display',serif;font-size:28px;margin:6px 0 6px">Whisper of Mystery</h4>
-            <p class="muted">Step into a world of elegance and allure with Dark Orchid, crafted for those who appreciate timeless sophistication.</p>
-            <div class="notes">
-              <div class="note"><strong>Top</strong><br>Bergamot, Fresh, Citrus</div>
-              <div class="note"><strong>Mid</strong><br>Green Floral, Rose, Melon Fruit</div>
-              <div class="note"><strong>Base</strong><br>Amber, Musk, Sandalwood</div>
-            </div>
-            <ul class="muted">
-              <li>Long‑lasting fragrance – 8+ hours</li>
-              <li>Unisex • perfect for day & night</li>
-              <li>30ml transparent bottle • sleek black cap</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <p>Email: duskenbloom@gmail.com</p>
+    <p>Phone: +91 8762773728</p>
+    <p>Instagram: <a href="https://instagram.com/dusken_bloom" target="_blank">@dusken_bloom</a></p>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <div class="container">
-      <h3 class="section-title">Aesthetic <span class="gold">Gallery</span></h3>
-      <div class="gallery">
-        <figure class="g g-6"><img src="assets/gallery-1.jpg" alt="ICON product"/></figure>
-        <figure class="g g-6"><img src="assets/gallery-2.jpg" alt="Dark Orchid product"/></figure>
-        <figure class="g g-8"><img src="assets/gallery-3.jpg" alt="Dusken Bloom bag"/></figure>
-        <figure class="g g-4"><img src="assets/gallery-4.jpg" alt="ICON & Dark Orchid boxes"/></figure>
-        <figure class="g g-12 g-6"><img src="assets/gallery-5.jpg" alt="Perfume bottles"/></figure>
-      </div>
-    </div>
+  <!-- ===== ORDER SECTION ===== -->
+  <section id="order" class="container" style="padding:60px 20px; text-align:center;">
+    <h2>Place Your Order</h2>
+    <p style="margin-bottom:20px;">Fill the form below to order Dusken Bloom perfumes.</p>
+
+    <!-- Order Form -->
+    <form action="https://formspree.io/f/xkgvpkej" method="POST"
+          style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; text-align:left;">
+
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="text" name="phone" id="phone" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea name="address" id="address" rows="3" required></textarea>
+
+      <label for="product">Select Product</label>
+      <select name="product" id="product" required>
+        <option value="ICON">ICON - ₹999</option>
+        <option value="Dark Orchid">Dark Orchid - ₹1199</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+
+      <button type="submit" style="background:#000; color:#fff; padding:12px; border:none; border-radius:5px; cursor:pointer;">
+        Submit Order
+      </button>
+    </form>
+
+    <hr style="margin:40px 0;">
+
+    <!-- UPI Payment -->
+    <h3>Pay via UPI</h3>
+    <p>Scan the QR code or click the button to pay securely.</p>
+
+    <!-- ✅ Upload your QR image into assets/upi-qr.png -->
+    <img src="assets/upi-qr.png" alt="UPI QR" style="max-width:200px; margin-bottom:15px;">
+
+    <br>
+    <a href="upi://pay?pa=9207471285@kotak811&pn=DuskenBloom&cu=INR"
+       style="display:inline-block; background:#007bff; color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none;">
+       Pay with UPI
+    </a>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container contact-card">
-      <div class="card">
-        <h3 class="section-title">Contact <span class="gold">Us</span></h3>
-        <p class="muted">Have a question or want to place an order? Reach us on WhatsApp or follow us on Instagram for updates.</p>
-        <div class="actions">
-          <a class="btn-gold" href="https://wa.me/918762773728" target="_blank" rel="noopener">Chat on WhatsApp</a>
-          <a class="chip" href="https://instagram.com/dusken_bloom" target="_blank" rel="noopener">@dusken_bloom</a>
-        </div>
-      </div>
-      <div class="card">
-        <h4 style="margin:0 0 12px">Quick Details</h4>
-        <div class="chip">WhatsApp: 8762773728</div>
-        <div class="chip">Instagram: dusken_bloom</div>
-        <p class="muted" style="margin-top:14px">© <span id="year"></span> Dusken Bloom – The Luxury Perfumes</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">Designed with ♥ for Dusken Bloom. All rights reserved.</div>
+  <!-- ===== FOOTER ===== -->
+  <footer style="text-align:center; padding:20px; background:#f4f4f4;">
+    <p>© 2025 Dusken Bloom - The Luxury Perfumes</p>
   </footer>
 
-  <script>
-    // current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
