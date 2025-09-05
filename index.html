@@ -5,74 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dusken Bloom - Luxury Perfumes</title>
   <style>
-    /* Reset */
     body, h1, h2, h3, p, a, input, textarea, select, button {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       box-sizing: border-box;
     }
+    body { line-height: 1.6; background: #fff; color: #222; }
 
-    body {
-      line-height: 1.6;
-      background: #fff;
-      color: #222;
-    }
+    header { background: #000; color: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 22px; font-weight: bold; }
+    nav a { color: #fff; margin-left: 15px; text-decoration: none; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
 
-    /* Navbar */
-    header {
-      background: #000;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    section h2 { text-align: center; margin-bottom: 20px; font-size: 28px; color: #000; }
 
-    header h1 {
-      font-size: 22px;
-      font-weight: bold;
-    }
+    .hero { background: url('assets/logo.png') center no-repeat; background-size: contain; text-align: center; padding: 100px 20px; }
+    .hero h2 { font-size: 34px; color: #111; }
 
-    nav a {
-      color: #fff;
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .product-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .product { border: 1px solid #ddd; padding: 15px; border-radius: 8px; max-width: 250px; text-align: center; background: #fafafa; }
+    .product img { max-width: 100%; border-radius: 6px; }
+    .product h3 { margin-top: 10px; }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+    .gallery-grid img { width: 100%; border-radius: 8px; }
 
-    /* Sections */
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+    form { max-width: 600px; margin: auto; background: #fafafa; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+    form input, form textarea, form select { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; }
+    form button { background: #000; color: #fff; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-size: 16px; width: 100%; }
+    form button:hover { background: #444; }
 
-    section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 28px;
-      color: #000;
-    }
+    .upi-box { text-align: center; margin-top: 20px; }
+    .upi-box img { max-width: 200px; margin-bottom: 10px; }
 
-    /* Hero */
-    .hero {
-      background: url('assets/logo.png') center no-repeat;
-      background-size: contain;
-      text-align: center;
-      padding: 100px 20px;
-    }
+    footer { background: #000; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dusken Bloom</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#order">Order</a>
+    </nav>
+  </header>
 
-    .hero h2 {
-      font-size: 34px;
-      color: #111;
-    }
+  <section id="home" class="hero">
+    <h2>Welcome to Dusken Bloom</h2>
+    <p>Luxury Non-Alcoholic Perfumes crafted with elegance.</p>
+  </section>
 
-    /* Products */
-    .product-grid {
-      display: flex;
-      justify-content: center;
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Dusken Bloom brings you premium, long-lasting, and non-alcoholic perfumes made with high-quality ingredients. Our mission is to deliver a luxury fragrance experience to everyone.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="assets/icon-main.jpg" alt="ICON Perfume">
+        <h3>ICON</h3>
+        <p>Price: ₹999</p>
+      </div>
+      <div class="product">
+        <img src="assets/dark-orchid-main.png" alt="Dark Orchid Perfume">
+        <h3>Dark Orchid</h3>
+        <p>Price: ₹1199</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="assets/gallery-1.png" alt="Perfume bottle">
+      <img src="assets/gallery-2.JPG" alt="Luxury perfume">
+      <img src="assets/gallery-3.JPG" alt="Perfume collection">
+      <img src="assets/gallery-4.JPG" alt="Perfume collection">
+      <img src="assets/gallery-5.JPG" alt="Perfume collection">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: duskenbloom@gmail.com</p>
+    <p>Phone: +91 8762773728</p>
+    <p>Instagram: <a href="https://instagram.com/dusken_bloom" target="_blank">@dusken_bloom</a></p>
+  </section>
+
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <p style="text-align:center;">Fill the form below to order Dusken Bloom perfumes.</p>
+
+    <form action="https://formspree.io/f/xkgvpkej" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <textarea name="address" placeholder="Delivery Address" rows="3" required></textarea>
+      <select name="product" required>
+        <option value="ICON - ₹999">ICON - ₹999</option>
+        <option value="Dark Orchid - ₹1199">Dark Orchid - ₹1199</option>
+      </select>
+      <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+      <button type="submit">Submit Order</button>
+    </form>
+
+    <div class="upi-box">
+      <h3>Pay via UPI</h3>
+      <img src="assets/upi-qr.png.jpeg" alt="UPI QR">
+      <p>UPI ID: <strong>9207471285@kotak811</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Dusken Bloom - The Luxury Perfumes</p>
+  </footer>
+</body>
+</html>
