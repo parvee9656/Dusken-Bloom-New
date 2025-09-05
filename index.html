@@ -106,6 +106,56 @@
     }
   </style>
 </head>
+<!-- ================= Order Section ================= -->
+<section id="order" class="container" style="padding:60px 20px; text-align:center;">
+  <h2>Place Your Order</h2>
+  <p style="margin-bottom:20px;">Fill the form below to order Dusken Bloom perfumes.</p>
+
+  <!-- Order Form -->
+  <form id="orderForm"
+        action="https://formspree.io/f/xkgvpkej"
+        method="POST"
+        style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; text-align:left;">
+
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="text" name="phone" id="phone" required>
+
+    <label for="address">Delivery Address</label>
+    <textarea name="address" id="address" rows="3" required></textarea>
+
+    <label for="product">Select Product</label>
+    <select name="product" id="product" required>
+      <option value="ICON">ICON - ₹999</option>
+      <option value="Dark Orchid">Dark Orchid - ₹1199</option>
+    </select>
+
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+
+    <button type="submit" style="background:#000; color:#fff; padding:12px; border:none; border-radius:5px; cursor:pointer;">
+      Submit Order
+    </button>
+  </form>
+
+  <hr style="margin:40px 0;">
+
+  <!-- UPI Payment -->
+  <h3>Pay via UPI</h3>
+  <p>Scan the QR code or click the button to pay securely.</p>
+
+  <!-- Upload your QR image inside assets/ folder -->
+  <img src="assets/upi-qr.png" alt="UPI QR" style="max-width:200px; margin-bottom:15px;">
+
+  <br>
+  <a href="upi://pay?pa=9207471285@kotak811&pn=DuskenBloom&cu=INR"
+     style="display:inline-block; background:#007bff; color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none;">
+     Pay with UPI
+  </a>
+</section>
+
 <body>
   <!-- Header -->
   <header>
