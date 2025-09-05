@@ -3,123 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dusken Bloom - The Luxury Perfumes</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <title>Dusken Bloom - Luxury Perfumes</title>
+  <style>
+    /* Reset */
+    body, h1, h2, h3, p, a, input, textarea, select, button {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      box-sizing: border-box;
+    }
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">Dusken Bloom</div>
-    <nav class="links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <a href="#order">Order</a> <!-- ✅ New Order Link -->
-    </nav>
-  </header>
+    body {
+      line-height: 1.6;
+      background: #fff;
+      color: #222;
+    }
 
-  <!-- ===== HOME ===== -->
-  <section id="home" class="container">
-    <h1>Welcome to Dusken Bloom</h1>
-    <p>Luxury Non-Alcoholic Perfumes crafted with elegance.</p>
-  </section>
+    /* Navbar */
+    header {
+      background: #000;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="container">
-    <h2>About Us</h2>
-    <p>Dusken Bloom brings you premium, long-lasting, and non-alcoholic perfumes made with high-quality ingredients. Our mission is to deliver a luxury fragrance experience to everyone.</p>
-  </section>
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-  <!-- ===== PRODUCTS ===== -->
-  <section id="products" class="container">
-    <h2>Our Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="assets/icon.jpg" alt="ICON Perfume">
-        <h3>ICON</h3>
-        <p>Price: ₹999</p>
-      </div>
-      <div class="product">
-        <img src="assets/dark-orchid.jpg" alt="Dark Orchid Perfume">
-        <h3>Dark Orchid</h3>
-        <p>Price: ₹1199</p>
-      </div>
-    </div>
-  </section>
+    nav a {
+      color: #fff;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-  <!-- ===== GALLERY ===== -->
-  <section id="gallery" class="container">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="assets/gallery1.jpg" alt="Perfume bottle">
-      <img src="assets/gallery2.jpg" alt="Luxury perfume">
-      <img src="assets/gallery3.jpg" alt="Perfume collection">
-    </div>
-  </section>
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="container">
-    <h2>Contact Us</h2>
-    <p>Email: duskenbloom@gmail.com</p>
-    <p>Phone: +91 8762773728</p>
-    <p>Instagram: <a href="https://instagram.com/dusken_bloom" target="_blank">@dusken_bloom</a></p>
-  </section>
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-  <!-- ===== ORDER SECTION ===== -->
-  <section id="order" class="container" style="padding:60px 20px; text-align:center;">
-    <h2>Place Your Order</h2>
-    <p style="margin-bottom:20px;">Fill the form below to order Dusken Bloom perfumes.</p>
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #000;
+    }
 
-    <!-- Order Form -->
-    <form action="https://formspree.io/f/xkgvpkej" method="POST"
-          style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; text-align:left;">
+    /* Hero */
+    .hero {
+      background: url('assets/logo.png') center no-repeat;
+      background-size: contain;
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-      <label for="name">Full Name</label>
-      <input type="text" name="name" id="name" required>
+    .hero h2 {
+      font-size: 34px;
+      color: #111;
+    }
 
-      <label for="phone">Phone Number</label>
-      <input type="text" name="phone" id="phone" required>
-
-      <label for="address">Delivery Address</label>
-      <textarea name="address" id="address" rows="3" required></textarea>
-
-      <label for="product">Select Product</label>
-      <select name="product" id="product" required>
-        <option value="ICON">ICON - ₹999</option>
-        <option value="Dark Orchid">Dark Orchid - ₹1199</option>
-      </select>
-
-      <label for="quantity">Quantity</label>
-      <input type="number" name="quantity" id="quantity" value="1" min="1" required>
-
-      <button type="submit" style="background:#000; color:#fff; padding:12px; border:none; border-radius:5px; cursor:pointer;">
-        Submit Order
-      </button>
-    </form>
-
-    <hr style="margin:40px 0;">
-
-    <!-- UPI Payment -->
-    <h3>Pay via UPI</h3>
-    <p>Scan the QR code or click the button to pay securely.</p>
-
-    <!-- ✅ Upload your QR image into assets/upi-qr.png -->
-    <img src="assets/upi-qr.png" alt="UPI QR" style="max-width:200px; margin-bottom:15px;">
-
-    <br>
-    <a href="upi://pay?pa=9207471285@kotak811&pn=DuskenBloom&cu=INR"
-       style="display:inline-block; background:#007bff; color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none;">
-       Pay with UPI
-    </a>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer style="text-align:center; padding:20px; background:#f4f4f4;">
-    <p>© 2025 Dusken Bloom - The Luxury Perfumes</p>
-  </footer>
-
-</body>
-</html>
+    /* Products */
+    .product-grid {
+      display: flex;
+      justify-content: center;
